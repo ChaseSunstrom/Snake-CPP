@@ -76,7 +76,6 @@ namespace Snake
             m_snake[i] = m_snake[i - 1];
         }
 
-        // Change the head position based on the current direction
         switch (m_dir)
         {
         case MoveDirection::UP: m_snake[0].y -= m_cell_size; break;
@@ -92,7 +91,7 @@ namespace Snake
             place_fruit();
             if (m_snake.size() >= m_win_length) {
                 m_win = true;
-                m_game_over = true; // Optional: you could let the game continue or stop here.
+                m_game_over = true; 
             }
         }
 
@@ -119,14 +118,14 @@ namespace Snake
 
         // Render fruit
         SDL_Rect fruit_rect = { m_fruit.x, m_fruit.y, m_cell_size, m_cell_size };
-        SDL_SetRenderDrawColor(m_renderer, 255, 0, 0, 255); // red
+        SDL_SetRenderDrawColor(m_renderer, 255, 0, 0, 255);
         SDL_RenderFillRect(m_renderer, &fruit_rect);
 
         // Render snake
         for (auto& segment : m_snake)
         {
             SDL_Rect rect = { segment.x, segment.y, m_cell_size, m_cell_size };
-            SDL_SetRenderDrawColor(m_renderer, 0, 255, 0, 255); // green
+            SDL_SetRenderDrawColor(m_renderer, 0, 255, 0, 255); 
             SDL_RenderFillRect(m_renderer, &rect);
         }
 
